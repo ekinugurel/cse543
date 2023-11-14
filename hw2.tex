@@ -1,0 +1,248 @@
+\documentclass[11pt]{article}
+\usepackage{fullpage}
+
+
+%for formatting
+\usepackage{titlesec}
+%\titleformat{\section}[block]{\Large\bfseries\filcenter}{}{1em}{}
+\usepackage{titling}
+\setlength{\droptitle}{-4em}  
+
+% use Times
+%\usepackage{times}
+% For figures
+\usepackage{graphicx} % more modern
+%\usepackage{epsfig} % less modern
+\usepackage{subfigure} 
+\usepackage{caption}
+%\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumerate}
+\usepackage{enumitem}
+
+
+
+% For citations
+%\usepackage{natbib}\textbf{}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usetikzlibrary{arrows}
+\usepackage{hyperref}
+% \allowdisplaybreaks
+
+% For algorithms
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{hyperref}
+\usepackage{bm}
+
+%For theorems
+
+
+%for convinience
+\newcommand{\vct}{\boldsymbol }
+%\newcommand{\mat}{\mathbf}
+\newcommand{\rnd}{\mathsf}
+\newcommand{\ud}{\mathrm d}
+\newcommand{\nml}{\mathcal{N}}
+\newcommand{\loss}{\mathcal{L}}
+\newcommand{\hinge}{\mathcal{R}}
+\newcommand{\kl}{\mathrm{KL}}
+\newcommand{\cov}{\mathrm{cov}}
+\newcommand{\dir}{\mathrm{Dir}}
+\newcommand{\mult}{\mathrm{Mult}}
+\newcommand{\err}{\mathrm{err}}
+\newcommand{\sgn}{\mathrm{sgn}}
+%\renewcommand{\span}{\mathrm{span}}
+\newcommand{\argmin}{\mathrm{argmin}}
+\newcommand{\argmax}{\mathrm{argmax}}
+\newcommand{\poly}{\mathrm{poly}}
+\newcommand{\rank}{\mathrm{rank}}
+\newcommand{\conv}{\mathrm{conv}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\diag}{\mat{diag}}
+\newcommand{\acc}{\mathrm{acc}}
+
+\newcommand{\aff}{\mathrm{aff}}
+\newcommand{\range}{\mathrm{Range}}
+\newcommand{\Sgn}{\mathrm{sign}}
+
+\newcommand{\hit}{\mathrm{hit}}
+\newcommand{\cross}{\mathrm{cross}}
+\newcommand{\Left}{\mathrm{left}}
+\newcommand{\Right}{\mathrm{right}}
+\newcommand{\Mid}{\mathrm{mid}}
+\newcommand{\bern}{\mathrm{Bernoulli}}
+\newcommand{\ols}{\mathrm{ols}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\opt}{\mathrm{opt}}
+\newcommand{\ridge}{\mathrm{ridge}}
+\newcommand{\unif}{\mathrm{unif}}
+\newcommand{\Image}{\mathrm{im}}
+\newcommand{\Kernel}{\mathrm{ker}}
+\newcommand{\supp}{\mathrm{supp}}
+\newcommand{\pred}{\mathrm{pred}}
+
+
+\def\R{\mathbb{R}}
+\def\Z{\mathbb{Z}}
+\def\cA{\mathcal{A}}
+\def\cB{\mathcal{B}}
+\def\cD{\mathcal{D}}
+\def\cE{\mathcal{E}}
+\def\cF{\mathcal{F}}
+\def\cG{\mathcal{G}}
+\def\cH{\mathcal{H}}
+\def\cI{\mathcal{I}}
+\def\cL{\mathcal{L}}
+\def\cM{\mathcal{M}}
+\def\cN{\mathcal{N}}
+\def\cP{\mathcal{P}}
+\def\cS{\mathcal{S}}
+\def\cT{\mathcal{T}}
+\def\cW{\mathcal{W}}
+\def\cZ{\mathcal{Z}}
+\def\bP{\mathbf{P}}
+\def\TV{\mathrm{TV}}
+\def\MSE{\mathrm{MSE}}
+
+\newcommand{\mat}[1]{{#1}}
+\newcommand{\set}[1]{{#1}}
+\newcommand{\vect}[1]{{\mathbf{#1}}}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\expect}[1]{\mathbf{E}\left[#1\right]}
+\newcommand{\prob}{\mathbf{P}}
+\newcommand{\prox}[2]{\textbf{Prox}_{#1}\left\{#2\right\}}
+\newcommand{\tops}{P_{2s}}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}{Lemma}[section]
+\newtheorem{cor}{Corollary}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{asmp}{Assumption}[section]
+\newtheorem{defn}{Definition}[section]
+\newtheorem{fact}{Fact}[section]
+\newtheorem{conj}{Conjecture}[section]
+\newtheorem{rem}{Remark}[section]
+
+\newenvironment{itemize*}%
+{\begin{itemize}[leftmargin=*,topsep=0pt]%
+		\setlength{\itemsep}{0pt}%
+		\setlength{\parskip}{0pt}}%
+	{\end{itemize}}
+
+\newenvironment{enumerate*}%
+{\begin{enumerate}[leftmargin=*,topsep=0pt]%
+		\setlength{\itemsep}{0pt}%
+		\setlength{\parskip}{0pt}}%
+	{\end{enumerate}}
+
+
+%comment
+\newcommand{\simon}[1]{\textcolor{red}{[Simon: #1]}}
+% \newcommand{\simon}[1]{#1}
+
+%opening
+
+\title{\textbf{CSE543 Deep Learning Homework 2}
+	%	\vspace{-0.5cm}
+}
+
+
+%\author{Simon S. Du}
+
+
+\begin{document}
+	
+	\maketitle
+	
+\begin{itemize}
+	\item Deadline: November 7th. 
+	\item Include your name and UW NetID in your submission. You only need to submit one PDF.
+	\item Homework must be typed. You can use any typesetting software you wish (\LaTeX, Markdown, MS Word etc). 
+	\item You may discuss assignments with others, but you must write down the solutions by yourself.
+\end{itemize}
+
+	
+\section{Landscape of Top Eigenvector Problem (5 Points)}
+Consider the following optimization problem for computing the top eigenvector of a positive semi-definite matrix $M \in \mathbb{R}^{d \times d}$:\begin{align*}
+\min_{x \in \mathbb{R}^d} f(x) = \frac{1}{4} \norm{xx^\top - M}_F^2.
+\end{align*}
+Let the eigen-decomposition of $M$ be $M = \sum_{i=1}^{d} \lambda_i v_iv_i^\top$ where $\{\lambda_i\}_{i=1}^d$ are eigenvalues and $\{v_i\}_{i=1}^d$ are the corresponding eigenvectors.
+Assume $\lambda_1 > \lambda_2 \ge \lambda_3 \ge \cdots \lambda_d \ge 0$.
+Prove that all saddle points and local maxima are strict, i.e., except the global minima, the Hessian matrices of all other first-order stationary points have a negative eigenvalue.
+
+
+\section{Implicit regularization of gradient descent on over-parameterized linear regression (9 points)}
+Consider a linear regression problem:\begin{align*}
+	\min_{w \in \mathbb{R}^d} L(w)=\frac{1}{2n}\sum_{i=1}^n\left(x_i^\top w - y_i\right)^2
+\end{align*}
+where $x_i \in \mathbb{R}^d$ is the input and $y_i \in \mathbb{R}$ is the label.
+We assume $d \ge n$ (the over-parameterized regime).
+% and there exists $w^*$ such that $y_i = x_i^\top w$, i.e., the optimal error is $0$.
+Let $X = \left[x_1,\ldots,x_n\right] \in \mathbb{R}^{d \times n}$ and assume $\rank\left(X\right)=n$ (the least singular value of $X$ is strictly positive).
+We solve this linear regression problem via gradient flow with $w(0) = 0$, \begin{align*}
+\frac{dw(t)}{dt} = - \nabla L(w(t)).
+\end{align*}
+We will show that $w(t)$ converges to the solution of the following optimization problem\begin{align}
+	&\min_w \norm{w}_2^2 \nonumber \\
+	\text{such that}~&y_i = x_i^\top w,~\forall i=1,\ldots,n. \label{opt}
+\end{align}
+\begin{enumerate}
+	\item (3 points) Show $L(w(t)) \rightarrow 0$ as $t \rightarrow \infty$.
+	\item (3 points) Show $\forall t\geq 0$, $w(t)$ is in the span of $(x_1,\ldots,x_n)$.
+	\item (3 points) Use these two properties to argue $w(t)$ will converge to the solution of the optimization problem~\eqref{opt}.
+\end{enumerate}
+
+\section{Neural Tangent Kernel (10 points)}
+Recall that the neural tangent kernel for a two-layer neural network with only the first layer being trained is \[
+k(x,x') := x^\top x' \mathbb{E}_{w }\left[\sigma'(w^\top x)\sigma'(w^\top x')\right]
+\]
+where $w \in \mathbb{R}^d$ is a standard Gaussian random vector: $w \sim \mathcal{N}(0,I)$.
+Throughout this problem, suppose $\|x\|_2=1$ (this includes $\|x'\|_2=1$ below).
+\begin{enumerate}
+    \item (3 points) Prove $k(x,x')= x^\top x' \cdot \mathbb{E}_w\left[\sigma'(w_1) \sigma'\left(w_1 x^\top x' + w_2\sqrt{1-(x^\top x')^2}\right)\right]$ where $w_1,w_2$ are the first two entries of $w$.\\
+    \textbf{Hint}: Use the rotational invariance of the Gaussian.\\
+    \textbf{Remark}: This kernel therefore only depends on $x^\top x'$.
+    \item (3 points) Prove when $\sigma(\cdot)$ is ReLU, then we have \[
+    k(x,x') = \frac{x^\top x' \left(\pi - \arccos\left(x^\top x'\right)\right)}{2\pi}.
+    \]
+    \item (3 points) Fix $d=10$ and $m=5$. Generate $n = 20, 40, 80$, and $160$ training data points $\{(x_i,y_i)\}_{i=1}^n$ with $x_i \sim \unif\left(\mathcal{S}^{d-1}\right)$ (uniform distribution over the unit sphere) and $y_i = \frac{1}{m}\sum_{j=1}^m \sigma(e_j^\top x_i) $ where $e_j \in \mathbb{R}^d$ is the one-hot vector with $j$-th entry being $1$ and other entries being $0$. 
+    
+    Consider two prediction functions to fit these data: 1) kernel regression with the kernel function in Problem 3.2 (a.k.a., infinitely wide neural network with $1/\sqrt{m}$ initialization scaling) and no regularization, and 2) a two-layer neural network with $f(x;w_1,\ldots,w_m) = \frac{1}{m}\sum_{j=1}^m \sigma(w_j^\top x) $ where $w_j$ is initialized from the standard Gaussian $\mathcal{N}(0,I)$. The second prediction function is trained by gradient descent (you should tune the learning rate to make it converge). 
+    Use quadratic loss.
+    
+    Sample another $1000$ data to calculate the test error.
+    Plot the figure for the test errors of these two prediction functions (two curves) where $x$-axis is the number of training data and the $y$-axis is the test error.
+    \item (1 point) Discuss your findings about the plot ($\sim$ one paragraph). This is an open-ended question and any reasonable answer will receive full credit.
+\end{enumerate}
+
+
+\section{Initialization for Leaky ReLU (9 Points)}
+Consider an $H$-layer neural network of the following form: \[f(x,W^1,\ldots,W^{H+1}) = W^{H+1}\sigma(W^H\sigma(\cdots \sigma(W^1 x)))\] where $x \in \mathbb{R}^{d_1}$, $W^h \in \mathbb{R}^{d_{h+1} \times d_h}$ for $h=1,\ldots,H$, and $W^{H+1} \in \mathbb{R}^{d_{H}}$.
+Here $\sigma(\cdot)$ is the leaky ReLU activation function: $\sigma(z) = \max\{0,z\} + \alpha \min\{0,z\}$. 
+Let $W^{h}_{ij}$ be the $(i,j)$-th entry of $W^h$. We initialize $W^{h}_{ij}$ from a standard normal distribution with mean $0$ and variance $\beta_h$.
+\begin{enumerate}
+    \item (3 points) Let $z^h = W^h \sigma(W^{h-1}\sigma(\cdots \sigma(W^1 x)))$. Derive $\beta_h$ such that the variance for $z^h$ is the same for all $h$.
+    \item (6 points) In this problem, you will experiment with fully-connected neural networks with different depths and $\alpha$s in Leaky ReLU on the MNIST dataset, where you use only the images corresponding to the digits $0$ and $1$ (binary classification).
+    Use logistic loss and stochastic gradient descent to train the neural network. You can tune the learning rate and the number of epochs.
+We recommend using PyTorch.
+If you plan to use PyTorch, you can use Dataloader to use the MNIST dataset directly.
+
+  For this problem, we will fix the width $m=256$ for all layers. Consider the four depths $H=10,20,30,40$ and four $\alpha$s: $\alpha = 2, 1,0.5,0.1$. Plot $16$ figures. Each figure corresponds to one pair of $(H,\alpha)$. Each figure has two curves: one corresponds to Kaiming initialization (normal distribution with variance $2/d_h$) and one corresponds to the normal distribution initialization with the variance scaling derived in Problem 4.1. Note you need to use the same learning rate and batch size for both initialization scalings. But you can use different learning rates and batches for different $(H,\alpha)$s.
+  
+  For each figure, you need to list all the hyperparameters used, either in the text or in the figure caption. Please attach your codes in your submission.
+  Since this problem asks you to choose your own hyper-parameters, as long as your plots are reasonable, you will receive full credits.
+
+    
+\end{enumerate}
+
+	
+\end{document}
+
+
+
